@@ -20,19 +20,19 @@ module.exports = function (creater, params, cb) {
     fs.mkdirSync(sourceDir)
     fs.mkdirSync(path.join(sourceDir, 'pages'))
 
-    creater.template('core/lib/templates/pkg', path.join(projectPath, 'package.json'), {
+    creater.template('minip-temp/pkg', path.join(projectPath, 'package.json'), {
         projectName,
     })
 
-    creater.template('core/lib/templates/project', path.join(projectPath, 'project.config.json'), {
+    creater.template('minip-temp/project', path.join(projectPath, 'project.config.json'), {
         css,
     })
 
-    creater.template('core/lib/templates/.eslintrc', path.join(projectPath, '.eslintrc.json'))
-    creater.template('core/lib/templates/.eslintignore', path.join(projectPath, '.eslintignore'))
-    creater.template('core/lib/templates/README', path.join(projectPath, 'README.md'))
-    creater.template('core/lib/templates/gitignore', path.join(projectPath, '.gitignore'))
-    creater.copy('core/lib/templates/src', path.join(projectPath, 'src'));
+    creater.template('minip-temp/.eslintrc', path.join(projectPath, '.eslintrc.json'))
+    creater.template('minip-temp/.eslintignore', path.join(projectPath, '.eslintignore'))
+    creater.template('minip-temp/README', path.join(projectPath, 'README.md'))
+    creater.template('minip-temp/gitignore', path.join(projectPath, '.gitignore'))
+    creater.copy('minip-temp/src', path.join(projectPath, 'src'));
 
     creater.fs.commit(() => {
         console.log()
