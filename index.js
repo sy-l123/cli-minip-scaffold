@@ -17,21 +17,21 @@ module.exports = function (creater, params, chalk, shelljs, ora) {
     fs.mkdirSync(sourceDir)
     fs.mkdirSync(path.join(sourceDir, 'pages'))
 
-    creater.template(path.join(projectPath, 'minip-temp/pkg'), path.join(projectPath, 'package.json'), {
+    creater.template(path.join(cwd, 'minip-temp/pkg'), path.join(projectPath, 'package.json'), {
         projectName,
         description,
     })
 
-    creater.template(path.join(projectPath, 'minip-temp/project'), path.join(projectPath, 'project.config.json'), {
+    creater.template(path.join(cwd, 'minip-temp/project'), path.join(projectPath, 'project.config.json'), {
         projectName,
         css,
     })
 
-    creater.template(path.join(projectPath, 'minip-temp/.eslintrc'), path.join(projectPath, '.eslintrc.json'))
-    creater.template(path.join(projectPath, 'minip-temp/.eslintignore'), path.join(projectPath, '.eslintignore'))
-    creater.template(path.join(projectPath, 'minip-temp/README'), path.join(projectPath, 'README.md'))
-    creater.template(path.join(projectPath, 'minip-temp/gitignore'), path.join(projectPath, '.gitignore'))
-    creater.copy(path.join(projectPath, 'minip-temp/src'), path.join(projectPath, 'src'));
+    creater.template(path.join(cwd, 'minip-temp/.eslintrc'), path.join(projectPath, '.eslintrc.json'))
+    creater.template(path.join(cwd, 'minip-temp/.eslintignore'), path.join(projectPath, '.eslintignore'))
+    creater.template(path.join(cwd, 'minip-temp/README'), path.join(projectPath, 'README.md'))
+    creater.template(path.join(cwd, 'minip-temp/gitignore'), path.join(projectPath, '.gitignore'))
+    creater.copy(path.join(cwd, 'minip-temp/src'), path.join(projectPath, 'src'));
 
     creater.fs.commit(() => {
         console.log()
