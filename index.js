@@ -1,19 +1,16 @@
-const fs = require('fs-extra')
+const fs = require('fs')
 const path = require('path')
-const chalk = require('chalk')
-const shelljs = require('shelljs')
-const ora = require('ora')
 
-module.exports = function (creater, params, cb) {
+module.exports = function (creater, params, chalk, shelljs, ora) {
     const {
         projectName,
         description,
         src,
         css
-    } = params // { projectName: 'minip', css: 'less', date: '2022-5-30', src: 'src' }
+    } = params
     const cwd = process.cwd()
-    const projectPath = path.join(cwd, projectName) // D:\git-project\syl-cli\minip\packages\core\minip
-    const sourceDir = path.join(projectPath, src) // D:\git-project\syl-cli\minip\packages\core\minip\src
+    const projectPath = path.join(cwd, projectName)
+    const sourceDir = path.join(projectPath, src)
     
 
     fs.mkdirSync(projectPath)
